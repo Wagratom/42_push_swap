@@ -7,7 +7,7 @@ INCLUDE			=	push_swap.h
 OBJS_DIR		=	objects
 OBJS			=	$(patsubst %.c, $(OBJS_DIR)/%.o, $(SOURCS))
 
-CC				=	cc
+CC				=	cc -g3
 CFLAGS			=	#-Wall -Wextra -Werror
 
 RM				=	rm -rf

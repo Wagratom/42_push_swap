@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:41:10 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/17 18:36:58 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/18 16:04:42 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef struct s_stack
 }	t_stack;
 
 //					auxiliries
-void	my_error(void);
+void	my_error(t_stack *stack);
+int		valid_stack(t_stack **tack);
 t_stack	*ft_stknew(int content);
 t_stack	*ft_stklast(t_stack *lst);
 void	ft_stkadd_back(t_stack **lst, t_stack *new);
@@ -34,22 +35,22 @@ void	ft_stkadd_back(t_stack **lst, t_stack *new);
 
 /* sa (swap a): Troca os 2 primeiros elementos no topo da pilha a.
 Não faça nada se houver apenas um ou nenhum elemento. */
-void	sa(t_stack *stack_a);
+void	sa(t_stack **stack_a);
 
 /* sb (swap b): Troca os 2 primeiros elementos no topo da pilha b.
 Não faça nada se houver apenas um ou nenhum elemento.*/
-void	sb(t_stack *stack_b);
+void	sb(t_stack **stack_b);
 
 /* ss : sa e sb ao mesmo tempo. */
-void	ss(t_stack *stack_a, t_stack *stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
 
 /* pa (pressione a): Pegue o primeiro elemento no topo de b e coloque-o no
 topo de a. Não faça nada se b estiver vazio. */
-void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack **stack_a, t_stack **stack_b);
 
 /* pb (push b): Pegue o primeiro elemento no topo de a e coloque-o no topo
 de b. Não faça nada se a estiver vazio. */
-void	pb(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b);
 
 /* ra (girar a): Deslocar todos os elementos da pilha a por 1.
 O primeiro elemento torna-se o último. */

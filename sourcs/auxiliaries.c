@@ -6,16 +6,35 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:02:51 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/17 18:37:20 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/18 16:11:43 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	my_error(void)
+void	my_error(t_stack *stack)
 {
+	t_stack	*tmp;
+
+	while (stack)
+	{
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
+	}
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
+}
+
+int	valid_stack(t_stack **stack)
+{
+	while((*stack)->next)
+	{
+		if ((*stack)->content > (*stack)->next->content)
+			return (0);
+		(*stack) = (*stack)->next;
+	}
+	return (1);
 }
 
 t_stack	*ft_stknew(int content)
