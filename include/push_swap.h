@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:41:10 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/18 16:04:42 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/18 16:45:42 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 
 //					auxiliries
 void	my_error(t_stack *stack);
-int		valid_stack(t_stack **tack);
+int		valid_stack(t_stack *tack);
 t_stack	*ft_stknew(int content);
 t_stack	*ft_stklast(t_stack *lst);
 void	ft_stkadd_back(t_stack **lst, t_stack *new);

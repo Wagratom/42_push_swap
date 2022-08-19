@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:01:38 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/18 16:14:35 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/19 11:35:03 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	ra(t_stack **stack_a)
 		tmp = ft_stklast(*stack_a);
 		tmp->next = *stack_a;
 		(*stack_a)->prev = tmp;
-		(*stack_a)->next = NULL;
 		(*stack_a) = (*stack_a)->next;
 		(*stack_a)->prev = NULL;
+		tmp->next->next = NULL;
 	}
 	write(1, "ra\n", 3);
 }
@@ -37,9 +37,9 @@ void	rb(t_stack **stack_b)
 		tmp = ft_stklast(*stack_b);
 		tmp->next = *stack_b;
 		(*stack_b)->prev = tmp;
-		(*stack_b)->next = NULL;
 		(*stack_b) = (*stack_b)->next;
 		(*stack_b)->prev = NULL;
+		(*stack_b)->next->next = NULL;
 	}
 	write(1, "rb\n", 3);
 }

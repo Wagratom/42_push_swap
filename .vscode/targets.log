@@ -5,9 +5,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Thu Aug 18 16:17:14 2022
+# Make data base, printed on Fri Aug 19 11:21:15 2022
 
 # Variables
 
@@ -60,7 +59,7 @@ VPATH = . ./sourcs ./operatins
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-00305efa-32e4-45bb-9b86-e686e5745f3c.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-edf37341-a10c-4752-89aa-e2c607e2dfd8.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -72,7 +71,7 @@ PWD = /home/bankai/42/push_swap
 # default
 .LOADED := 
 # environment
-WT_SESSION = b020112f-971e-46b9-9df3-7c79dfb82002
+WT_SESSION = b129f97d-280c-4148-bf1e-20438faae8cb
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -158,7 +157,7 @@ TERM = xterm-256color
 # environment
 WSL_DISTRO_NAME = Ubuntu-20.04
 # variable set hash-table stats:
-# Load=73/1024=7%, Rehash=0, Collisions=7/107=7%
+# Load=73/1024=7%, Rehash=0, Collisions=7/112=6%
 
 # Pattern-specific Variable Values
 
@@ -167,10 +166,10 @@ WSL_DISTRO_NAME = Ubuntu-20.04
 # Directories
 
 # . (device 2, inode 3096224743819109): 11 files, no impossibilities.
-# ./sourcs (device 2, inode 9007199254945332): 4 files, no impossibilities.
-# ./operatins (device 2, inode 8725724278160537): 5 files, no impossibilities so far.
+# ./sourcs (device 2, inode 9007199254945332): 4 files, no impossibilities so far.
+# ./operatins (device 2, inode 8725724278160537): No files, no impossibilities so far.
 
-# 20 files, no impossibilities in 3 directories.
+# 15 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -182,16 +181,9 @@ objects/%.o: %.c
 
 # Files
 
-# Not a target:
-./operatins/sort2.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-18 16:14:35.8192681
-#  File has been updated.
-#  Successfully updated.
-
 objects:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-18 16:16:44.9023022
+#  Last modified 2022-08-18 22:19:07.9237935
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 31):
@@ -203,32 +195,28 @@ all: push_swap
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
-objects/auxiliaries.o: ./sourcs/auxiliaries.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'auxiliaries'
-#  Last modified 2022-08-18 16:16:44.696371
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 19):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+# Not a target:
+objects/auxiliaries.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ./sourcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-18 16:16:18.3008448
+#  Last modified 2022-08-18 22:29:49.9199549
 #  File has been updated.
 #  Successfully updated.
 
-objects/sort2.o: ./operatins/sort2.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'sort2'
-#  Last modified 2022-08-18 16:16:44.8381958
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 19):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+# Not a target:
+objects/sort2.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 libft:
 #  Phony target (prerequisite of .PHONY).
@@ -250,13 +238,6 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-./sourcs/auxiliaries.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-18 16:11:43.4963882
-#  File has been updated.
-#  Successfully updated.
-
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
@@ -267,20 +248,10 @@ fclean: clean
 					$(RM) $(LIBFT)
 
 # Not a target:
-./operatins/sort3.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-18 16:15:06.1975376
-#  File has been updated.
-#  Successfully updated.
-
-objects/sort3.o: ./operatins/sort3.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'sort3'
-#  Last modified 2022-08-18 16:16:44.912305
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 19):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+objects/sort3.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -305,9 +276,11 @@ clean:
 
 push_swap: objects objects/main.o objects/auxiliaries.o objects/sort1.o objects/sort2.o objects/sort3.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-18 16:16:47.5650961
+#  Last modified 2022-08-18 22:19:08.0478207
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 #  recipe to execute (from 'Makefile', line 24):
 					make libft
 					$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
@@ -315,30 +288,38 @@ push_swap: objects objects/main.o objects/auxiliaries.o objects/sort1.o objects/
 objects/main.o: ./sourcs/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-08-18 16:16:44.6228496
+#  Last modified 2022-08-18 22:19:07.9337958
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := objects/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := ./sourcs/main.c
+# automatic
+# | := 
+# automatic
+# < := ./sourcs/main.c
+# automatic
+# ^ := ./sourcs/main.c
+# automatic
+# ? := ./sourcs/main.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
 #  recipe to execute (from 'Makefile', line 19):
 					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
 # Not a target:
-./operatins/sort1.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-18 16:14:15.269464
-#  File has been updated.
-#  Successfully updated.
-
-objects/sort1.o: ./operatins/sort1.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'sort1'
-#  Last modified 2022-08-18 16:16:44.7671747
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 19):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+objects/sort1.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=21/1024=2%, Rehash=0, Collisions=8/100=8%
+# Load=17/1024=2%, Rehash=0, Collisions=2/54=4%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -346,12 +327,12 @@ objects/sort1.o: ./operatins/sort1.c
 # General ('VPATH' variable) search path:
 # ./sourcs:./operatins
 
-# strcache buffers: 1 (0) / strings = 45 / storage = 457 B / avg = 10 B
-# current buf: size = 8162 B / used = 457 B / count = 45 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 34 / storage = 320 B / avg = 9 B
+# current buf: size = 8162 B / used = 320 B / count = 34 / avg = 9 B
 
-# strcache performance: lookups = 92 / hit rate = 51%
+# strcache performance: lookups = 67 / hit rate = 49%
 # hash-table stats:
-# Load=45/8192=1%, Rehash=0, Collisions=5/92=5%
-# Finished Make data base on Thu Aug 18 16:17:14 2022
+# Load=34/8192=0%, Rehash=0, Collisions=4/67=6%
+# Finished Make data base on Fri Aug 19 11:21:15 2022
 
  

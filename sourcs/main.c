@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:17:02 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/18 16:32:52 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/19 11:36:53 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_stack	*fill_stack(char **argv)
 
 int	gira_gira(t_stack **stack)
 {
-	while((*stack)->next)
+	while ((*stack)->next)
 	{
 		if ((*stack)->content < (*stack)->next->content)
 			return (0);
@@ -57,30 +57,18 @@ int	gira_gira(t_stack **stack)
 
 int	sort_tiny(t_stack **stack)
 {
-	printf("content1 = %d\n", (*stack)->content);
-	printf("content1 = %d\n",  (*stack)->next->content);
-	printf("content1 = %d\n",  (*stack)->next->next->content);
-
-
-	while (1)
+	while (!valid_stack(*stack))
 	{
-		printf("entrei\n");
-		if (valid_stack(stack))
-			break ;
-		if ((int)(*stack)->content < (int)(*stack)->next->content)
-		{
-			printf("entrei rra\n");
+		if ((*stack)->content < (*stack)->next->content)
 			rra(stack);
-		}
-		if ((*stack)->content > (*stack)->next->content &&
-			(*stack)->content < (*stack)->next->next->content)
+		if ((*stack)->content > (*stack)->next->content
+			&& (*stack)->content < (*stack)->next->next->content)
 			sa(stack);
-		if ((*stack)->content > (*stack)->next->content &&
-			(*stack)->content > (*stack)->next->next->content)
-			rrb(stack);
+		if ((*stack)->content > (*stack)->next->content
+			&& (*stack)->content > (*stack)->next->next->content)
+			ra(stack);
+		print_stack(*stack);
 	}
-	print_stack(*stack);
-	printf("\n");
 	return (1);
 }
 
@@ -89,10 +77,11 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_a;
 
 	stack_a = fill_stack(argv);
-
 	print_stack(stack_a);
 	printf("\n");
 	if (argc == 4)
 		sort_tiny(&stack_a);
+	else if (argc == 4)
+		return (1);
 	return (0);
 }

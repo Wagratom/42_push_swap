@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:02:51 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/18 16:11:43 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/19 11:35:15 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	my_error(t_stack *stack)
 	exit(EXIT_FAILURE);
 }
 
-int	valid_stack(t_stack **stack)
+int	valid_stack(t_stack *stack)
 {
-	while((*stack)->next)
+	while (stack->next)
 	{
-		if ((*stack)->content > (*stack)->next->content)
+		if (stack->content > stack->next->content)
 			return (0);
-		(*stack) = (*stack)->next;
+		stack = stack->next;
 	}
 	return (1);
 }
