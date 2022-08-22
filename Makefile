@@ -1,7 +1,7 @@
 LIBFT			=	./libft/libft.a
 
 SOURCS			=	main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c \
-					ordenacion.c
+					ordenacion.c sort_five.c
 
 INCLUDE			=	push_swap.h
 

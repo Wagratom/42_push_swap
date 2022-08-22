@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Aug 21 18:21:36 2022
+# Make data base, printed on Mon Aug 22 13:18:44 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 # default
 .SHELLFLAGS := -c
 # makefile (from 'Makefile', line 3)
-SOURCS = main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c ordenacion.c
+SOURCS = main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c ordenacion.c sort_five.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -59,7 +59,7 @@ VPATH = . ./sourcs ./operatins ./algoritimos
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-ba4e63d5-78a7-40af-9e94-90692bb9600b.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-1c4d315c-9939-404d-a974-2123b6eaf1f3.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,13 +71,14 @@ PWD = /home/bankai/42/push_swap
 # default
 .LOADED := 
 # environment
-WT_SESSION = ed77afa7-baf5-4075-ba38-f3efd00c64c8
+WT_SESSION = 3d5f5831-95c8-47da-8bbd-fc7620a8eca9
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/bankai
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
+ 
 # environment
 LOGNAME = bankai
 # environment
@@ -159,7 +160,7 @@ WSL_DISTRO_NAME = Ubuntu-20.04
 # environment
 MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=7/108=6%
+# Load=74/1024=7%, Rehash=0, Collisions=7/113=6%
 
 # Pattern-specific Variable Values
 
@@ -167,12 +168,15 @@ MOTD_SHOWN = update-motd
 
 # Directories
 
-# . (device 2, inode 3096224743819109): 12 files, no impossibilities.
+# . (device 2, inode 3096224743819109): 11 files, no impossibilities.
+# ./sourcs/objects: could not be stat'd.
 # ./sourcs (device 2, inode 9007199254945332): 5 files, no impossibilities.
-# ./algoritimos (device 2, inode 5348024557721396): 3 files, no impossibilities so far.
+# ./algoritimos/objects: could not be stat'd.
+# ./algoritimos (device 2, inode 5348024557721396): 4 files, no impossibilities.
+# ./operatins/objects: could not be stat'd.
 # ./operatins (device 2, inode 8725724278160537): 5 files, no impossibilities.
 
-# 25 files, no impossibilities in 4 directories.
+# 25 files, no impossibilities in 7 directories.
 
 # Implicit Rules
 
@@ -193,7 +197,7 @@ objects/%.o: %.c
 
 objects:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-20 17:47:20.5636566
+#  Last modified 2022-08-22 12:57:11.9834244
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -205,12 +209,14 @@ all: push_swap
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
 objects/auxiliaries.o: ./sourcs/auxiliaries.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'auxiliaries'
-#  Last modified 2022-08-20 17:47:20.5726585
+#  Last modified 2022-08-21 18:32:22.9898954
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 20):
@@ -219,7 +225,7 @@ objects/auxiliaries.o: ./sourcs/auxiliaries.c
 # Not a target:
 ./sourcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-20 17:27:46.9255472
+#  Last modified 2022-08-22 11:04:03.8347852
 #  File has been updated.
 #  Successfully updated.
 
@@ -243,7 +249,7 @@ libft:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-20 14:36:49.2334706
+#  Last modified 2022-08-22 12:57:28.9587717
 #  File has been updated.
 #  Successfully updated.
 
@@ -255,7 +261,7 @@ Makefile:
 # Not a target:
 ./sourcs/auxiliaries.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-20 17:47:19.6036856
+#  Last modified 2022-08-21 18:32:20.290207
 #  File has been updated.
 #  Successfully updated.
 
@@ -321,26 +327,35 @@ clean:
 					$(MAKE) -C ./libft clean
 					$(RM) $(OBJS_DIR)
 
-push_swap: objects objects/main.o objects/stk.o objects/auxiliaries.o objects/sort1.o objects/sort2.o objects/sort3.o objects/ordenacion.o
+push_swap: objects objects/main.o objects/stk.o objects/auxiliaries.o objects/sort1.o objects/sort2.o objects/sort3.o objects/ordenacion.o objects/sort_five.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-20 17:47:20.6911879
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 #  recipe to execute (from 'Makefile', line 25):
 					make libft
 					$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
 
 # Not a target:
+./algoritimos/sort_five.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-22 11:31:22.9725638
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 ./algoritimos/ordenacion.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-20 09:54:45.7449788
+#  Last modified 2022-08-22 11:27:04.0833954
 #  File has been updated.
 #  Successfully updated.
 
 objects/main.o: ./sourcs/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-08-20 17:28:04.067568
+#  Last modified 2022-08-22 11:04:04.8492313
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 20):
@@ -353,6 +368,33 @@ objects/main.o: ./sourcs/main.c
 #  File has been updated.
 #  Successfully updated.
 
+objects/sort_five.o: ./algoritimos/sort_five.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sort_five'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := objects/sort_five.o
+# automatic
+# % := 
+# automatic
+# * := sort_five
+# automatic
+# + := ./algoritimos/sort_five.c
+# automatic
+# | := 
+# automatic
+# < := ./algoritimos/sort_five.c
+# automatic
+# ^ := ./algoritimos/sort_five.c
+# automatic
+# ? := ./algoritimos/sort_five.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
+#  recipe to execute (from 'Makefile', line 20):
+					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+
 objects/sort1.o: ./operatins/sort1.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'sort1'
@@ -362,17 +404,18 @@ objects/sort1.o: ./operatins/sort1.c
 #  recipe to execute (from 'Makefile', line 20):
 					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
+ 
 objects/ordenacion.o: ./algoritimos/ordenacion.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'ordenacion'
-#  Last modified 2022-08-20 14:41:22.0455488
+#  Last modified 2022-08-22 12:57:11.9934264
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 20):
 					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
 # files hash-table stats:
-# Load=25/1024=2%, Rehash=0, Collisions=16/128=12%
+# Load=27/1024=3%, Rehash=0, Collisions=16/152=11%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -380,12 +423,12 @@ objects/ordenacion.o: ./algoritimos/ordenacion.c
 # General ('VPATH' variable) search path:
 # ./sourcs:./operatins:./algoritimos
 
-# strcache buffers: 1 (0) / strings = 55 / storage = 594 B / avg = 10 B
-# current buf: size = 8162 B / used = 594 B / count = 55 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 62 / storage = 721 B / avg = 11 B
+# current buf: size = 8162 B / used = 721 B / count = 62 / avg = 11 B
 
-# strcache performance: lookups = 111 / hit rate = 50%
+# strcache performance: lookups = 120 / hit rate = 48%
 # hash-table stats:
-# Load=55/8192=1%, Rehash=0, Collisions=6/111=5%
-# Finished Make data base on Sun Aug 21 18:21:36 2022
+# Load=62/8192=1%, Rehash=0, Collisions=6/120=5%
+# Finished Make data base on Mon Aug 22 13:18:44 2022
 
  

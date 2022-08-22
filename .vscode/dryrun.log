@@ -1,14 +1,8 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/bankai/42/push_swap'
-mkdir -p objects
-cc -g3  -c ./sourcs/main.c -o objects/main.o -I./include
-cc -g3  -c ./sourcs/stk.c -o objects/stk.o -I./include
-cc -g3  -c ./sourcs/auxiliaries.c -o objects/auxiliaries.o -I./include
-cc -g3  -c ./operatins/sort1.c -o objects/sort1.o -I./include
-cc -g3  -c ./operatins/sort2.c -o objects/sort2.o -I./include
-cc -g3  -c ./operatins/sort3.c -o objects/sort3.o -I./include
-cc -g3  -c ./algoritimos/ordenacion.c -o objects/ordenacion.o -I./include
+cc -g3  -c ./algoritimos/sort_five.c -o objects/sort_five.o -I./include
 make libft
-cc -g3   objects/main.o  objects/stk.o  objects/auxiliaries.o  objects/sort1.o  objects/sort2.o  objects/sort3.o  objects/ordenacion.o ./libft/libft.a -o push_swap
+ 
+cc -g3   objects/main.o  objects/stk.o  objects/auxiliaries.o  objects/sort1.o  objects/sort2.o  objects/sort3.o  objects/ordenacion.o  objects/sort_five.o ./libft/libft.a -o push_swap
 make: Leaving directory '/home/bankai/42/push_swap'
  
