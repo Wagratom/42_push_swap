@@ -6,10 +6,9 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 11:27:06 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 15:03:31 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:43:31 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <push_swap.h>
 
@@ -30,7 +29,7 @@ int	position_more(t_stack *stack, t_data *data, int posi)
 
 int	share_stack(t_stack **stack_a, t_stack **stack_b, t_data *data)
 {
-	int count;
+	int	count;
 	int	tmp;
 	int	aux;
 
@@ -56,7 +55,7 @@ int	share_stack(t_stack **stack_a, t_stack **stack_b, t_data *data)
 void	sort_five(t_stack **stack_a, t_data *data)
 {
 	t_stack	*stack_b;
-	int	tmp;
+	int		tmp;
 
 	tmp = share_stack(stack_a, &stack_b, data) + 1;
 	if (tmp == 2)

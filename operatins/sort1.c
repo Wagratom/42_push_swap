@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:46:59 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/19 15:30:46 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:44:35 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	if (*stack_b)
 	{
 		tmp = *stack_b;
-		(*stack_b) =  (*stack_b)->next;
+		(*stack_b) = (*stack_b)->next;
 		tmp->next = NULL;
 		if (*stack_b)
 			(*stack_b)->prev = NULL;

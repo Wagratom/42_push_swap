@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 13:50:24 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 13:55:09 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:45:27 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	valid_stack(t_stack *stack)
 
 int	valid_argv(char **argv)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	while (argv[++index])

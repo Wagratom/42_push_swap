@@ -6,13 +6,13 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:02:51 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 13:50:20 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:43:52 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	my_error(t_stack *stack)
+void	my_clear(t_stack *stack, int *aux, int flg)
 {
 	t_stack	*tmp;
 
@@ -22,6 +22,21 @@ void	my_error(t_stack *stack)
 		free(stack);
 		stack = tmp;
 	}
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	stack = NULL;
+	free(aux);
+	if (flg)
+	{
+		write(2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
+}
+
+void	print_stack(t_stack *stack)
+{
+	while (stack)
+	{
+		printf("value = %d\n", stack->content);
+		stack = stack->next;
+	}
+	printf("\n");
 }

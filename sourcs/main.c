@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:17:02 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 14:34:18 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:45:10 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	data_init(char **argv, int argc, t_data *data)
 {
-	if (!argv[1])
-		my_error(NULL);
 	data->argv = argv;
 	data->argc = argc - 2;
 	data->aux = (int *)malloc(sizeof(int) * argc);
+	if (!argv[1])
+		my_clear(NULL, data->aux, 1);
 }
 
 void	*fill_stack(t_data *data, t_stack **stack_a)
@@ -34,10 +34,10 @@ void	*fill_stack(t_data *data, t_stack **stack_a)
 		while (data->argv[index][++aux])
 		{
 			if (!ft_isdigit(data->argv[index][aux]))
-				my_error(*stack_a);
+				my_clear(*stack_a, data->aux, 1);
 		}
 		if (valid_argv(&data->argv[index]))
-			my_error(*stack_a);
+			my_clear(*stack_a, data->aux, 1);
 		data->aux[index - 1] = ft_atoi(data->argv[index]);
 		ft_stkadd_back(stack_a, ft_stknew(data->aux[index - 1]));
 	}
@@ -77,16 +77,7 @@ int	main(int argc, char *argv[])
 		sort_three(&stack_a, argc - 1);
 	else if (argc <= 6)
 		sort_five(&stack_a, &data);
+	my_clear(stack_a, data.aux, 0);
 	print_stack(stack_a);
 	return (0);
-}
-
-void	print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("value = %d\n", stack->content);
-		stack = stack->next;
-	}
-	printf("\n");
 }

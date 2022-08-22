@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:41:10 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 14:34:08 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:43:46 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../libft/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
-
 
 typedef struct data
 {
@@ -41,7 +40,7 @@ void	print_stack(t_stack *stack);
 int		valid_argv(char **argv);
 
 //					auxiliaries
-void	my_error(t_stack *stack);
+void	my_clear(t_stack *stack, int *aux, int flg);
 int		valid_stack(t_stack *tack);
 void	sort_three(t_stack **stack, int size);
 void	orde_aux(t_data *data);
