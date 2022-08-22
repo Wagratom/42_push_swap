@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 11:27:06 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 13:27:07 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/22 15:03:31 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,35 +28,43 @@ int	position_more(t_stack *stack, t_data *data, int posi)
 	return (-1);
 }
 
-void	share_stack(t_stack **stack_a, t_stack **stack_b, t_data *data)
+int	share_stack(t_stack **stack_a, t_stack **stack_b, t_data *data)
 {
+	int count;
 	int	tmp;
 	int	aux;
 
 	*stack_b = NULL;
-	aux = -1;
-	while (++aux < 2)
+	aux = data->argc -2;
+	count = -1;
+	while (++count < aux)
 	{
-		tmp = position_more(*stack_a, data, aux);
+		tmp = position_more(*stack_a, data, count);
 		while (tmp != 1)
 		{
 			if (tmp >= 3)
 				rra(stack_a);
 			else
 				ra(stack_a);
-			tmp = position_more(*stack_a, data, aux);
+			tmp = position_more(*stack_a, data, count);
 		}
 		pb(stack_a, stack_b);
 	}
+	return (data->argc - 3);
 }
 
-void	sort_four(t_stack **stack_a, t_data *data)
+void	sort_five(t_stack **stack_a, t_data *data)
 {
 	t_stack	*stack_b;
+	int	tmp;
 
-	share_stack(stack_a, &stack_b, data);
-
-	print_stack(*stack_a);
-	printf("\n\n");
-	print_stack(stack_b);
+	tmp = share_stack(stack_a, &stack_b, data) + 1;
+	if (tmp == 2)
+	{
+		if (stack_b->content < stack_b->next->content)
+			sa(&stack_b);
+	}
+	sort_three(stack_a, 0);
+	while (tmp--)
+		pa(stack_a, &stack_b);
 }

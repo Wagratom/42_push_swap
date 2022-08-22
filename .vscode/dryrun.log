@@ -1,8 +1,9 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/bankai/42/push_swap'
-cc -g3  -c ./algoritimos/sort_five.c -o objects/sort_five.o -I./include
-make libft
+cc -g3  -c ./sourcs/main.c -o objects/main.o -I./include
  
-cc -g3   objects/main.o  objects/stk.o  objects/auxiliaries.o  objects/sort1.o  objects/sort2.o  objects/sort3.o  objects/ordenacion.o  objects/sort_five.o ./libft/libft.a -o push_swap
+cc -g3  -c ./algoritimos/sort_three.c -o objects/sort_three.o -I./include
+make libft
+cc -g3   objects/main.o  objects/stk.o  objects/auxiliaries.o  objects/sort1.o  objects/sort2.o  objects/sort3.o  objects/sort_three.o  objects/sort_five.o  objects/validacions.o ./libft/libft.a -o push_swap
 make: Leaving directory '/home/bankai/42/push_swap'
  

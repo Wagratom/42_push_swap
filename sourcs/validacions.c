@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   auxiliaries.c                                      :+:      :+:    :+:   */
+/*   validacions.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 22:02:51 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 13:50:20 by wjuneo-f         ###   ########.fr       */
+/*   Created: 2022/08/22 13:50:24 by wjuneo-f          #+#    #+#             */
+/*   Updated: 2022/08/22 13:55:09 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	my_error(t_stack *stack)
+int	valid_stack(t_stack *stack)
 {
-	t_stack	*tmp;
+	int	index;
 
-	while (stack)
+	index = 1;
+	while (stack->next)
 	{
-		tmp = stack->next;
-		free(stack);
-		stack = tmp;
+		if (stack->content > stack->next->content)
+			return (index);
+		stack = stack->next;
+		index++;
 	}
-	write(2, "Error\n", 6);
-	exit(EXIT_FAILURE);
+	return (0);
+}
+
+int	valid_argv(char **argv)
+{
+	int index;
+
+	index = 0;
+	while (argv[++index])
+	{
+		if (!ft_strncmp(argv[0], argv[index], ft_strlen(argv[index])))
+			return (1);
+	}
+	return (0);
 }

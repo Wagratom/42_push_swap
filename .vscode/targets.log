@@ -3,10 +3,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ 
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug 22 13:18:44 2022
+# Make data base, printed on Mon Aug 22 14:19:32 2022
 
 # Variables
 
@@ -19,7 +20,7 @@ WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 # default
 .SHELLFLAGS := -c
 # makefile (from 'Makefile', line 3)
-SOURCS = main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c ordenacion.c sort_five.c
+SOURCS = main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c sort_three.c sort_five.c validacions.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -78,7 +79,6 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 HOME = /home/bankai
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
- 
 # environment
 LOGNAME = bankai
 # environment
@@ -168,15 +168,12 @@ MOTD_SHOWN = update-motd
 
 # Directories
 
-# . (device 2, inode 3096224743819109): 11 files, no impossibilities.
-# ./sourcs/objects: could not be stat'd.
-# ./sourcs (device 2, inode 9007199254945332): 5 files, no impossibilities.
-# ./algoritimos/objects: could not be stat'd.
-# ./algoritimos (device 2, inode 5348024557721396): 4 files, no impossibilities.
-# ./operatins/objects: could not be stat'd.
-# ./operatins (device 2, inode 8725724278160537): 5 files, no impossibilities.
+# . (device 2, inode 3096224743819109): 12 files, no impossibilities.
+# ./sourcs (device 2, inode 9007199254945332): 4 files, no impossibilities so far.
+# ./algoritimos (device 2, inode 5348024557721396): No files, no impossibilities so far.
+# ./operatins (device 2, inode 8725724278160537): No files, no impossibilities so far.
 
-# 25 files, no impossibilities in 7 directories.
+# 16 files, no impossibilities in 4 directories.
 
 # Implicit Rules
 
@@ -188,16 +185,9 @@ objects/%.o: %.c
 
 # Files
 
-# Not a target:
-./operatins/sort2.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-19 11:35:03.1893873
-#  File has been updated.
-#  Successfully updated.
-
 objects:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-22 12:57:11.9834244
+#  Last modified 2022-08-22 14:02:36.7222636
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
@@ -213,30 +203,30 @@ all: push_swap
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
-objects/auxiliaries.o: ./sourcs/auxiliaries.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'auxiliaries'
-#  Last modified 2022-08-21 18:32:22.9898954
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 20):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+# Not a target:
+objects/auxiliaries.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 ./sourcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 11:04:03.8347852
+#  Last modified 2022-08-22 14:18:36.7566407
 #  File has been updated.
 #  Successfully updated.
 
-objects/sort2.o: ./operatins/sort2.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'sort2'
-#  Last modified 2022-08-20 14:41:21.9002995
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 20):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+# Not a target:
+objects/sort2.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objects/validacions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 libft:
 #  Phony target (prerequisite of .PHONY).
@@ -249,21 +239,20 @@ libft:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 12:57:28.9587717
+#  Last modified 2022-08-22 14:19:17.9445348
 #  File has been updated.
 #  Successfully updated.
+
+# Not a target:
+objects/sort_three.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 .PHONY: all clean fclean re libft
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-./sourcs/auxiliaries.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-21 18:32:20.290207
-#  File has been updated.
-#  Successfully updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -275,27 +264,10 @@ fclean: clean
 					$(RM) $(LIBFT)
 
 # Not a target:
-./operatins/sort3.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-20 08:50:04.9161867
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-./sourcs/stk.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-20 09:13:46.1789288
-#  File has been updated.
-#  Successfully updated.
-
-objects/sort3.o: ./operatins/sort3.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'sort3'
-#  Last modified 2022-08-20 14:41:21.9724261
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 20):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+objects/sort3.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -303,14 +275,11 @@ objects/sort3.o: ./operatins/sort3.c
 #  Modification time never checked.
 #  File has not been updated.
 
-objects/stk.o: ./sourcs/stk.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'stk'
-#  Last modified 2022-08-20 14:41:21.6795422
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 20):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+# Not a target:
+objects/stk.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
@@ -327,9 +296,10 @@ clean:
 					$(MAKE) -C ./libft clean
 					$(RM) $(OBJS_DIR)
 
-push_swap: objects objects/main.o objects/stk.o objects/auxiliaries.o objects/sort1.o objects/sort2.o objects/sort3.o objects/ordenacion.o objects/sort_five.o
+push_swap: objects objects/main.o objects/stk.o objects/auxiliaries.o objects/sort1.o objects/sort2.o objects/sort3.o objects/sort_three.o objects/sort_five.o objects/validacions.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+ 
+#  Last modified 2022-08-22 14:02:36.8587994
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -338,84 +308,47 @@ push_swap: objects objects/main.o objects/stk.o objects/auxiliaries.o objects/so
 					make libft
 					$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
 
-# Not a target:
-./algoritimos/sort_five.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-22 11:31:22.9725638
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-./algoritimos/ordenacion.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-22 11:27:04.0833954
-#  File has been updated.
-#  Successfully updated.
-
 objects/main.o: ./sourcs/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-08-22 11:04:04.8492313
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 20):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
-
-# Not a target:
-./operatins/sort1.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-19 15:30:46.3654111
-#  File has been updated.
-#  Successfully updated.
-
-objects/sort_five.o: ./algoritimos/sort_five.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'sort_five'
-#  File does not exist.
+#  Last modified 2022-08-22 14:02:36.732266
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
-# @ := objects/sort_five.o
+# @ := objects/main.o
 # automatic
 # % := 
 # automatic
-# * := sort_five
+# * := main
 # automatic
-# + := ./algoritimos/sort_five.c
+# + := ./sourcs/main.c
 # automatic
 # | := 
 # automatic
-# < := ./algoritimos/sort_five.c
+# < := ./sourcs/main.c
 # automatic
-# ^ := ./algoritimos/sort_five.c
+# ^ := ./sourcs/main.c
 # automatic
-# ? := ./algoritimos/sort_five.c
+# ? := ./sourcs/main.c
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/15=7%
 #  recipe to execute (from 'Makefile', line 20):
 					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
-objects/sort1.o: ./operatins/sort1.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'sort1'
-#  Last modified 2022-08-20 14:41:21.8247269
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 20):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+# Not a target:
+objects/sort_five.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
- 
-objects/ordenacion.o: ./algoritimos/ordenacion.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'ordenacion'
-#  Last modified 2022-08-22 12:57:11.9934264
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 20):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+# Not a target:
+objects/sort1.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=27/1024=3%, Rehash=0, Collisions=16/152=11%
+# Load=21/1024=2%, Rehash=0, Collisions=4/62=6%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -423,12 +356,12 @@ objects/ordenacion.o: ./algoritimos/ordenacion.c
 # General ('VPATH' variable) search path:
 # ./sourcs:./operatins:./algoritimos
 
-# strcache buffers: 1 (0) / strings = 62 / storage = 721 B / avg = 11 B
-# current buf: size = 8162 B / used = 721 B / count = 62 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 40 / storage = 423 B / avg = 10 B
+# current buf: size = 8162 B / used = 423 B / count = 40 / avg = 10 B
 
-# strcache performance: lookups = 120 / hit rate = 48%
+# strcache performance: lookups = 74 / hit rate = 45%
 # hash-table stats:
-# Load=62/8192=1%, Rehash=0, Collisions=6/120=5%
-# Finished Make data base on Mon Aug 22 13:18:44 2022
+# Load=40/8192=0%, Rehash=0, Collisions=4/74=5%
+# Finished Make data base on Mon Aug 22 14:19:32 2022
 
  

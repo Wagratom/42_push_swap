@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:41:10 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 11:15:41 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/22 14:34:08 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,15 @@ t_stack	*ft_stklast(t_stack *lst);
 void	ft_stkadd_back(t_stack **lst, t_stack *new);
 
 void	print_stack(t_stack *stack);
+int		valid_argv(char **argv);
 
 //					auxiliaries
 void	my_error(t_stack *stack);
 int		valid_stack(t_stack *tack);
-void	sort_three(t_stack **stack);
+void	sort_three(t_stack **stack, int size);
 void	orde_aux(t_data *data);
 
-void	sort_four(t_stack **stack, t_data *data);
+void	sort_five(t_stack **stack, t_data *data);
 //					sorts
 
 /* sa (swap a): Troca os 2 primeiros elementos no topo da pilha a.
