@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 14:01:38 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/18 16:15:06 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/20 08:50:04 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	rra(t_stack **stack_a)
 		(*stack_a)->prev = tmp;
 		(*stack_a) = tmp;
 	}
-	write(1, "rra\n", 4);
+	write(1, "rra\n", 4);	
 }
 
 void	rrb(t_stack **stack_b)

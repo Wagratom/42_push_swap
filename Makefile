@@ -1,6 +1,7 @@
 LIBFT			=	./libft/libft.a
 
-SOURCS			=	main.c auxiliaries.c sort1.c sort2.c sort3.c
+SOURCS			=	main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c \
+					ordenacion.c
 
 INCLUDE			=	push_swap.h
 
@@ -13,7 +14,7 @@ CFLAGS			=	#-Wall -Wextra -Werror
 RM				=	rm -rf
 NAME			=	push_swap
 
-VPATH			=	. ./sourcs ./operatins
+VPATH			=	. ./sourcs ./operatins ./algoritimos
 
 $(OBJS_DIR)/%.o:	%.c
 					$(CC) $(CFLAGS) -c $< -o $@ -I./include

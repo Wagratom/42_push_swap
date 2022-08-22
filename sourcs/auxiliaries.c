@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:02:51 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/19 11:53:27 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/21 18:32:20 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,49 +27,38 @@ void	my_error(t_stack *stack)
 }
 
 int	valid_stack(t_stack *stack)
-{	
+{
+	int	index;
+
+	index = 1;
 	while (stack->next)
 	{
 		if (stack->content > stack->next->content)
-			return (0);
+			return (index);
 		stack = stack->next;
+		index++;
 	}
-	return (1);
+	return (0);
 }
 
-t_stack	*ft_stknew(int content)
+void	orde_aux(t_data *data)
 {
-	t_stack	*stack;
+	int	index;
+	int	tmp;
+	int	cpy;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	stack->content = content;
-	stack->next = NULL;
-	stack->prev = NULL;
-	return (stack);
-}
-
-t_stack	*ft_stklast(t_stack *lst)
-{
-	if (lst)
+	cpy = data->argc;
+	while (0 <= cpy--)
 	{
-		while (lst->next)
-			lst = lst->next;
-	}
-	return (lst);
-}
-
-void	ft_stkadd_back(t_stack **lst, t_stack *new)
-{
-	t_stack	*tmp;
-
-	if (!lst)
-		return ;
-	if (!*lst)
-		(*lst) = new;
-	else
-	{
-		tmp = ft_stklast(*lst);
-		tmp->next = new;
-		new->prev = tmp;
+		index = cpy;
+		while (0 < index--)
+		{
+			if (data->aux[index] < data->aux[cpy])
+			{
+				tmp = data->aux[index];
+				data->aux[index] = data->aux[cpy];
+				data->aux[cpy] = tmp;
+			}
+		}
 	}
 }

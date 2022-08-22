@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:41:10 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/18 16:45:42 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:28:31 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+
+typedef struct data
+{
+	char	**argv;
+	int		argc;
+	int		*aux;
+}	t_data;
+
 typedef struct s_stack
 {
 	int				content;
@@ -24,12 +32,16 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-//					auxiliries
-void	my_error(t_stack *stack);
-int		valid_stack(t_stack *tack);
+//					steck
 t_stack	*ft_stknew(int content);
 t_stack	*ft_stklast(t_stack *lst);
 void	ft_stkadd_back(t_stack **lst, t_stack *new);
+
+//					auxiliaries
+void	my_error(t_stack *stack);
+int		valid_stack(t_stack *tack);
+void	sort_three(t_stack **stack);
+void	orde_aux(t_data *data);
 
 //					sorts
 

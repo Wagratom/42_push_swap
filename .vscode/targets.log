@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug 19 11:21:15 2022
+# Make data base, printed on Sun Aug 21 18:21:36 2022
 
 # Variables
 
@@ -19,7 +19,7 @@ WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 # default
 .SHELLFLAGS := -c
 # makefile (from 'Makefile', line 3)
-SOURCS = main.c auxiliaries.c sort1.c sort2.c sort3.c
+SOURCS = main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c ordenacion.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -30,13 +30,13 @@ SOURCS = main.c auxiliaries.c sort1.c sort2.c sort3.c
 CURDIR := /home/bankai/42/push_swap
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 13)
+# makefile (from 'Makefile', line 14)
 RM = rm -rf
 # environment
 VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"8e7a008e83c664b9876a8f72ff0490ae.pt-br","_translationsConfigFile":"/home/bankai/.vscode-server/data/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br/tcf.json","_cacheRoot":"/home/bankai/.vscode-server/data/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br","_resolvedLanguagePackCoreLocation":"/home/bankai/.vscode-server/data/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br/e4503b30fc78200f846c62cf8091b76ff5547662","_corruptedFile":"/home/bankai/.vscode-server/data/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /mnt/c/Users/Bankai/AppData/Local/Programs/Microsoft VS Code/bin/code
-# makefile (from 'Makefile', line 11)
+# makefile (from 'Makefile', line 12)
 CFLAGS = 
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
@@ -44,7 +44,7 @@ MAKEFILE_LIST :=  Makefile
 GNUMAKEFLAGS := 
 # environment
 XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
-# makefile (from 'Makefile', line 8)
+# makefile (from 'Makefile', line 9)
 OBJS = $(patsubst %.c, $(OBJS_DIR)/%.o, $(SOURCS))
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
@@ -54,12 +54,12 @@ VSCODE_CWD = /mnt/c/Users/Bankai/AppData/Local/Programs/Microsoft VS Code
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
 PATH = /home/bankai/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/home/bankai/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Users/Bankai/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Bankai/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
-# makefile (from 'Makefile', line 16)
-VPATH = . ./sourcs ./operatins
+# makefile (from 'Makefile', line 17)
+VPATH = . ./sourcs ./operatins ./algoritimos
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-edf37341-a10c-4752-89aa-e2c607e2dfd8.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-ba4e63d5-78a7-40af-9e94-90692bb9600b.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,7 +71,7 @@ PWD = /home/bankai/42/push_swap
 # default
 .LOADED := 
 # environment
-WT_SESSION = b129f97d-280c-4148-bf1e-20438faae8cb
+WT_SESSION = ed77afa7-baf5-4075-ba38-f3efd00c64c8
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -96,7 +96,7 @@ MAKECMDGOALS := all
 SHLVL = 1
 # makefile (from 'Makefile', line 1)
 LIBFT = ./libft/libft.a
-# makefile (from 'Makefile', line 10)
+# makefile (from 'Makefile', line 11)
 CC = cc -g3
 # default
 MAKE_VERSION := 4.2.1
@@ -104,9 +104,9 @@ MAKE_VERSION := 4.2.1
 USER = bankai
 # makefile
 .DEFAULT_GOAL := all
-# makefile (from 'Makefile', line 5)
+# makefile (from 'Makefile', line 6)
 INCLUDE = push_swap.h
-# makefile (from 'Makefile', line 14)
+# makefile (from 'Makefile', line 15)
 NAME = push_swap
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
@@ -124,7 +124,7 @@ MAKEFLAGS = pqrR
 MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
-# makefile (from 'Makefile', line 7)
+# makefile (from 'Makefile', line 8)
 OBJS_DIR = objects
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
@@ -156,8 +156,10 @@ LANG = C
 TERM = xterm-256color
 # environment
 WSL_DISTRO_NAME = Ubuntu-20.04
+# environment
+MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=73/1024=7%, Rehash=0, Collisions=7/112=6%
+# Load=74/1024=7%, Rehash=0, Collisions=7/108=6%
 
 # Pattern-specific Variable Values
 
@@ -165,28 +167,36 @@ WSL_DISTRO_NAME = Ubuntu-20.04
 
 # Directories
 
-# . (device 2, inode 3096224743819109): 11 files, no impossibilities.
-# ./sourcs (device 2, inode 9007199254945332): 4 files, no impossibilities so far.
-# ./operatins (device 2, inode 8725724278160537): No files, no impossibilities so far.
+# . (device 2, inode 3096224743819109): 12 files, no impossibilities.
+# ./sourcs (device 2, inode 9007199254945332): 5 files, no impossibilities.
+# ./algoritimos (device 2, inode 5348024557721396): 3 files, no impossibilities so far.
+# ./operatins (device 2, inode 8725724278160537): 5 files, no impossibilities.
 
-# 15 files, no impossibilities in 3 directories.
+# 25 files, no impossibilities in 4 directories.
 
 # Implicit Rules
 
 objects/%.o: %.c
-#  recipe to execute (from 'Makefile', line 19):
+#  recipe to execute (from 'Makefile', line 20):
 					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
 # 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
-objects:
-#  Implicit rule search has not been done.
-#  Last modified 2022-08-18 22:19:07.9237935
+# Not a target:
+./operatins/sort2.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-19 11:35:03.1893873
 #  File has been updated.
 #  Successfully updated.
-#  recipe to execute (from 'Makefile', line 31):
+
+objects:
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-20 17:47:20.5636566
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 32):
 					mkdir -p $@
 
 all: push_swap
@@ -195,41 +205,45 @@ all: push_swap
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  Successfully updated.
 
-# Not a target:
-objects/auxiliaries.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+objects/auxiliaries.o: ./sourcs/auxiliaries.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'auxiliaries'
+#  Last modified 2022-08-20 17:47:20.5726585
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 20):
+					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
 # Not a target:
 ./sourcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-18 22:29:49.9199549
+#  Last modified 2022-08-20 17:27:46.9255472
 #  File has been updated.
 #  Successfully updated.
 
-# Not a target:
-objects/sort2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+objects/sort2.o: ./operatins/sort2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sort2'
+#  Last modified 2022-08-20 14:41:21.9002995
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 20):
+					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
 libft:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 28):
+#  recipe to execute (from 'Makefile', line 29):
 					$(MAKE) -C ./libft bonus
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-18 16:16:41.850397
+#  Last modified 2022-08-20 14:36:49.2334706
 #  File has been updated.
 #  Successfully updated.
 
@@ -238,26 +252,59 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+./sourcs/auxiliaries.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-20 17:47:19.6036856
+#  File has been updated.
+#  Successfully updated.
+
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 38):
+#  recipe to execute (from 'Makefile', line 39):
 					$(RM) $(NAME)
 					$(RM) $(LIBFT)
 
 # Not a target:
-objects/sort3.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+./operatins/sort3.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-20 08:50:04.9161867
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+./sourcs/stk.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-20 09:13:46.1789288
+#  File has been updated.
+#  Successfully updated.
+
+objects/sort3.o: ./operatins/sort3.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sort3'
+#  Last modified 2022-08-20 14:41:21.9724261
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 20):
+					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+objects/stk.o: ./sourcs/stk.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'stk'
+#  Last modified 2022-08-20 14:41:21.6795422
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 20):
+					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
@@ -270,69 +317,75 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 34):
+#  recipe to execute (from 'Makefile', line 35):
 					$(MAKE) -C ./libft clean
 					$(RM) $(OBJS_DIR)
 
-push_swap: objects objects/main.o objects/auxiliaries.o objects/sort1.o objects/sort2.o objects/sort3.o
+push_swap: objects objects/main.o objects/stk.o objects/auxiliaries.o objects/sort1.o objects/sort2.o objects/sort3.o objects/ordenacion.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-18 22:19:08.0478207
+#  Last modified 2022-08-20 17:47:20.6911879
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-#  recipe to execute (from 'Makefile', line 24):
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 25):
 					make libft
 					$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
+
+# Not a target:
+./algoritimos/ordenacion.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-20 09:54:45.7449788
+#  File has been updated.
+#  Successfully updated.
 
 objects/main.o: ./sourcs/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-08-18 22:19:07.9337958
+#  Last modified 2022-08-20 17:28:04.067568
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := objects/main.o
-# automatic
-# % := 
-# automatic
-# * := main
-# automatic
-# + := ./sourcs/main.c
-# automatic
-# | := 
-# automatic
-# < := ./sourcs/main.c
-# automatic
-# ^ := ./sourcs/main.c
-# automatic
-# ? := ./sourcs/main.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
-#  recipe to execute (from 'Makefile', line 19):
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 20):
 					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
 # Not a target:
-objects/sort1.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+./operatins/sort1.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-19 15:30:46.3654111
+#  File has been updated.
+#  Successfully updated.
+
+objects/sort1.o: ./operatins/sort1.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'sort1'
+#  Last modified 2022-08-20 14:41:21.8247269
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 20):
+					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+
+objects/ordenacion.o: ./algoritimos/ordenacion.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'ordenacion'
+#  Last modified 2022-08-20 14:41:22.0455488
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 20):
+					$(CC) $(CFLAGS) -c $< -o $@ -I./include
 
 # files hash-table stats:
-# Load=17/1024=2%, Rehash=0, Collisions=2/54=4%
+# Load=25/1024=2%, Rehash=0, Collisions=16/128=12%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # General ('VPATH' variable) search path:
-# ./sourcs:./operatins
+# ./sourcs:./operatins:./algoritimos
 
-# strcache buffers: 1 (0) / strings = 34 / storage = 320 B / avg = 9 B
-# current buf: size = 8162 B / used = 320 B / count = 34 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 55 / storage = 594 B / avg = 10 B
+# current buf: size = 8162 B / used = 594 B / count = 55 / avg = 10 B
 
-# strcache performance: lookups = 67 / hit rate = 49%
+# strcache performance: lookups = 111 / hit rate = 50%
 # hash-table stats:
-# Load=34/8192=0%, Rehash=0, Collisions=4/67=6%
-# Finished Make data base on Fri Aug 19 11:21:15 2022
+# Load=55/8192=1%, Rehash=0, Collisions=6/111=5%
+# Finished Make data base on Sun Aug 21 18:21:36 2022
 
  

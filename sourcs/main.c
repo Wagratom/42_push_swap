@@ -6,11 +6,20 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:17:02 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/19 11:36:53 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/22 09:27:20 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+void	data_init(char **argv, int argc, t_data *data)
+{
+	if (!argv[1])
+		my_error(NULL);
+	data->argv = argv;
+	data->argc = argc - 1;
+	data->aux = (int *)malloc(sizeof(int) * argc);
+}
 
 void	print_stack(t_stack *stack)
 {
@@ -19,69 +28,61 @@ void	print_stack(t_stack *stack)
 		printf("value = %d\n", stack->content);
 		stack = stack->next;
 	}
+	printf("\n");
 }
 
-t_stack	*fill_stack(char **argv)
+int	check_argv(char **argv)
 {
-	t_stack	*stack;
-	int		index;
-	int		letter;
+	int index;
 
-	if (!argv[1])
-		my_error(NULL);
-	stack = NULL;
 	index = 0;
 	while (argv[++index])
 	{
-		letter = -1;
-		while (argv[index][++letter])
+		if (!ft_strncmp(argv[0], argv[index], ft_strlen(argv[index])))
+			return (1);
+	}
+	return (0);
+}
+
+void	*fill_stack(t_data *data, t_stack **stack_a)
+{
+	int	index;
+	int	aux;
+
+	index = 0;
+	*stack_a = NULL;
+	while (data->argv[++index])
+	{
+		aux = -1;
+		while (data->argv[index][++aux])
 		{
-			if (!ft_isdigit(argv[index][letter]))
-				my_error(stack);
+			if (!ft_isdigit(data->argv[index][aux]))
+				my_error(*stack_a);
 		}
-		ft_stkadd_back(&stack, ft_stknew(ft_atoi(argv[index])));
+		if (check_argv(&data->argv[index]))
+			my_error(*stack_a);
+		data->aux[index - 1] = ft_atoi(data->argv[index]);
+		ft_stkadd_back(stack_a, ft_stknew(data->aux[index - 1]));
 	}
-	return (stack);
-}
-
-int	gira_gira(t_stack **stack)
-{
-	while ((*stack)->next)
-	{
-		if ((*stack)->content < (*stack)->next->content)
-			return (0);
-		(*stack) = (*stack)->next;
-	}
-	return (1);
-}
-
-int	sort_tiny(t_stack **stack)
-{
-	while (!valid_stack(*stack))
-	{
-		if ((*stack)->content < (*stack)->next->content)
-			rra(stack);
-		if ((*stack)->content > (*stack)->next->content
-			&& (*stack)->content < (*stack)->next->next->content)
-			sa(stack);
-		if ((*stack)->content > (*stack)->next->content
-			&& (*stack)->content > (*stack)->next->next->content)
-			ra(stack);
-		print_stack(*stack);
-	}
-	return (1);
 }
 
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
+	t_data	data;
 
-	stack_a = fill_stack(argv);
-	print_stack(stack_a);
-	printf("\n");
+	data_init(argv, argc, &data);
+	fill_stack(&data, &stack_a);
+	orde_aux(&data);
+	while (data.argc--)
+	{
+		printf("%d\n", *data.aux);
+		data.aux++;
+	}
 	if (argc == 4)
-		sort_tiny(&stack_a);
-	else if (argc == 4)
-		return (1);
+		sort_three(&stack_a);
+	else if (argc == 5)
+		sort_five(&stack_a);
+	print_stack(stack_a);
 	return (0);
 }

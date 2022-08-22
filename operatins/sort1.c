@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 23:46:59 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/19 11:33:57 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/19 15:30:46 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,46 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((*stack_b))
-		(*stack_a)->content = (*stack_b)->content;
+	t_stack	*tmp;
+
+	if (*stack_b)
+	{
+		tmp = *stack_b;
+		(*stack_b) =  (*stack_b)->next;
+		tmp->next = NULL;
+		if (*stack_b)
+			(*stack_b)->prev = NULL;
+		if (!*stack_a)
+			(*stack_a) = (*stack_b);
+		else
+		{
+			(*stack_a)->prev = tmp;
+			tmp->next = (*stack_a);
+			(*stack_a) = tmp;
+		}
+	}
 	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((*stack_a))
-		(*stack_b)->content = (*stack_a)->content;
+	t_stack	*tmp;
+
+	if (*stack_a)
+	{
+		tmp = *stack_a;
+		(*stack_a) = (*stack_a)->next;
+		tmp->next = NULL;
+		if (*stack_a)
+			(*stack_a)->prev = NULL;
+		if (!*stack_b)
+			(*stack_b) = tmp;
+		else
+		{
+			(*stack_b)->prev = tmp;
+			tmp->next = (*stack_b);
+			(*stack_b) = tmp;
+		}
+	}
 	write(1, "pb\n", 3);
 }
