@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:17:02 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 17:45:10 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/23 21:58:53 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,12 @@ int	main(int argc, char *argv[])
 	data_init(argv, argc, &data);
 	fill_stack(&data, &stack_a);
 	orde_aux(&data);
+	while (argc--)
+	{
+		printf("%d\n", *data.aux);
+		data.aux++;
+	}
+	exit(0);
 	if (argc <= 4)
 		sort_three(&stack_a, argc - 1);
 	else if (argc <= 6)
