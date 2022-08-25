@@ -14,7 +14,7 @@ CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 NAME			=	push_swap
 
-VPATH			=	. ./sourcs ./operatins ./algoritimos
+VPATH			=	. ./sourcs ./operatins ./algorithms
 
 $(OBJS_DIR)/%.o:	%.c
 					$(CC) $(CFLAGS) -c $< -o $@ -I./include
