@@ -1,13 +1,13 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Thu Aug 25 10:21:39 2022
+# Make data base, printed on Thu Aug 25 11:22:36 2022
 
 # Variables
 
@@ -56,7 +56,7 @@ MAKE_HOST := x86_64-pc-linux-gnu
 # environment
 PATH = /home/bankai/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/home/bankai/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Users/Bankai/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Bankai/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
 # makefile (from 'Makefile', line 17)
-VPATH = . ./sourcs ./operatins ./algoritimos
+VPATH = . ./sourcs ./operatins ./algorithms
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
@@ -160,7 +160,7 @@ WSL_DISTRO_NAME = Ubuntu-20.04
 # environment
 MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=7/113=6%
+# Load=74/1024=7%, Rehash=0, Collisions=7/111=6%
 
 # Pattern-specific Variable Values
 
@@ -169,14 +169,11 @@ MOTD_SHOWN = update-motd
 # Directories
 
 # . (device 2, inode 3096224743819109): 11 files, no impossibilities.
-# ./sourcs/objects: could not be stat'd.
 # ./sourcs (device 2, inode 9007199254945332): 6 files, no impossibilities.
-# ./algoritimos/objects: could not be stat'd.
-# ./algoritimos (device 2, inode 5348024557721396): 5 files, no impossibilities.
-# ./operatins/objects: could not be stat'd.
+# ./algorithms (device 2, inode 5348024557721396): 5 files, no impossibilities.
 # ./operatins (device 2, inode 8725724278160537): 5 files, no impossibilities.
 
-# 27 files, no impossibilities in 7 directories.
+# 27 files, no impossibilities in 4 directories.
 
 # Implicit Rules
 
@@ -190,9 +187,28 @@ objects/%.o: %.c
 
 objects:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-25 10:21:32.7140159
+#  Implicit/static pattern stem: ''
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := objects
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
 #  recipe to execute (from 'Makefile', line 32):
 					mkdir -p $@
 
@@ -204,20 +220,13 @@ all: push_swap
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 
 # Not a target:
 objects/auxiliaries.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-./sourcs/main.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-25 10:21:15.710065
-#  File has been updated.
-#  Successfully updated.
 
 # Not a target:
 objects/sort2.o:
@@ -240,9 +249,15 @@ libft:
 					$(MAKE) -C ./libft bonus
 
 # Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-25 10:21:28.5485313
+#  Last modified 2022-08-25 11:05:57.1138398
 #  File has been updated.
 #  Successfully updated.
 
@@ -305,44 +320,23 @@ push_swap: objects objects/main.o objects/stk.o objects/auxiliaries.o objects/so
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
- 
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
 #  recipe to execute (from 'Makefile', line 25):
 					make libft
 					$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
 
-objects/main.o: ./sourcs/main.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'main'
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := objects/main.o
-# automatic
-# % := 
-# automatic
-# * := main
-# automatic
-# + := ./sourcs/main.c
-# automatic
-# | := 
-# automatic
-# < := ./sourcs/main.c
-# automatic
-# ^ := ./sourcs/main.c
-# automatic
-# ? := ./sourcs/main.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
-#  recipe to execute (from 'Makefile', line 20):
-					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+# Not a target:
+objects/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 objects/raddix.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 # Not a target:
 objects/sort_five.o:
@@ -357,20 +351,20 @@ objects/sort1.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=22/1024=2%, Rehash=0, Collisions=4/72=6%
+# Load=21/1024=2%, Rehash=0, Collisions=4/63=6%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # General ('VPATH' variable) search path:
-# ./sourcs:./operatins:./algoritimos
+# ./sourcs:./operatins:./algorithms
 
-# strcache buffers: 1 (0) / strings = 52 / storage = 577 B / avg = 11 B
-# current buf: size = 8162 B / used = 577 B / count = 52 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 48 / storage = 509 B / avg = 10 B
+# current buf: size = 8162 B / used = 509 B / count = 48 / avg = 10 B
 
-# strcache performance: lookups = 89 / hit rate = 41%
+# strcache performance: lookups = 82 / hit rate = 41%
 # hash-table stats:
-# Load=52/8192=1%, Rehash=0, Collisions=6/89=7%
-# Finished Make data base on Thu Aug 25 10:21:39 2022
+# Load=48/8192=1%, Rehash=0, Collisions=6/82=7%
+# Finished Make data base on Thu Aug 25 11:22:36 2022
 
  

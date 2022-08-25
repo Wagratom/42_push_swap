@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:17:02 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/25 10:27:14 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/25 11:23:34 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,10 @@ void	find_index(t_stack **stack_a)
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
+	char	**aux;
 
-	fill_stack(argv, &stack_a);
+	aux = ft_split(argv[1], ' ');
+	fill_stack(aux, &stack_a);
 	find_index(&stack_a);
 	if (argc <= 4)
 		sort_three(&stack_a, argc - 1);
