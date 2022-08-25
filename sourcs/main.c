@@ -6,84 +6,68 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:17:02 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/23 21:58:53 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/25 10:27:14 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	data_init(char **argv, int argc, t_data *data)
-{
-	data->argv = argv;
-	data->argc = argc - 2;
-	data->aux = (int *)malloc(sizeof(int) * argc);
-	if (!argv[1])
-		my_clear(NULL, data->aux, 1);
-}
-
-void	*fill_stack(t_data *data, t_stack **stack_a)
+void	fill_stack(char	**argv, t_stack **stack_a)
 {
 	int	index;
 	int	aux;
 
+	if (!argv[1])
+		my_clear(NULL, 1);
 	index = 0;
 	*stack_a = NULL;
-	while (data->argv[++index])
+	while (argv[++index])
 	{
 		aux = -1;
-		while (data->argv[index][++aux])
+		while (argv[index][++aux])
 		{
-			if (!ft_isdigit(data->argv[index][aux]))
-				my_clear(*stack_a, data->aux, 1);
+			if (!ft_isdigit(argv[index][aux]))
+				my_clear(*stack_a, 1);
 		}
-		if (valid_argv(&data->argv[index]))
-			my_clear(*stack_a, data->aux, 1);
-		data->aux[index - 1] = ft_atoi(data->argv[index]);
-		ft_stkadd_back(stack_a, ft_stknew(data->aux[index - 1]));
+		if (valid_argv(&argv[index]))
+			my_clear(*stack_a, 1);
+		ft_stkadd_back(stack_a, ft_stknew(ft_atoi(argv[index])));
 	}
 }
 
-void	orde_aux(t_data *data)
+void	find_index(t_stack **stack_a)
 {
-	int	index;
-	int	tmp;
-	int	cpy;
+	t_stack	*tmp;
+	t_stack	*tmp2;
 
-	cpy = -1;
-	while (cpy++ < data->argc)
+	tmp = *stack_a;
+	while (tmp)
 	{
-		index = cpy;
-		while (index++ < data->argc)
+		tmp->index = 1;
+		tmp2 = *stack_a;
+		while (tmp2)
 		{
-			if (data->aux[index] < data->aux[cpy])
-			{
-				tmp = data->aux[index];
-				data->aux[index] = data->aux[cpy];
-				data->aux[cpy] = tmp;
-			}
+			if (tmp->content > tmp2->content)
+				tmp->index++;
+			tmp2 = tmp2->next;
 		}
+		tmp = tmp->next;
 	}
 }
 
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
-	t_data	data;
 
-	data_init(argv, argc, &data);
-	fill_stack(&data, &stack_a);
-	orde_aux(&data);
-	while (argc--)
-	{
-		printf("%d\n", *data.aux);
-		data.aux++;
-	}
-	exit(0);
+	fill_stack(argv, &stack_a);
+	find_index(&stack_a);
 	if (argc <= 4)
 		sort_three(&stack_a, argc - 1);
 	else if (argc <= 6)
-		sort_five(&stack_a, &data);
-	my_clear(stack_a, data.aux, 0);
+		sort_five(&stack_a, argc - 1);
+	else
+		raddix(&stack_a);
 	print_stack(stack_a);
+	my_clear(stack_a, 0);
 	return (0);
 }

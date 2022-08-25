@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:41:10 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/22 17:43:46 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/25 10:29:37 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,33 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-typedef struct data
-{
-	char	**argv;
-	int		argc;
-	int		*aux;
-}	t_data;
-
 typedef struct s_stack
 {
 	int				content;
+	int				index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
 
-//					steck
+//					algorithms
+void	raddix(t_stack **stack_a);
+void	sort_five(t_stack **stack, int size);
+void	sort_three(t_stack **stack, int size);
+
+//					stk
 t_stack	*ft_stknew(int content);
 t_stack	*ft_stklast(t_stack *lst);
 void	ft_stkadd_back(t_stack **lst, t_stack *new);
 
+//					auxiliaries
 void	print_stack(t_stack *stack);
+void	my_clear(t_stack *stack, int flg);
+
+//					validacions
+int		valid_stack(t_stack *tack);
 int		valid_argv(char **argv);
 
-//					auxiliaries
-void	my_clear(t_stack *stack, int *aux, int flg);
-int		valid_stack(t_stack *tack);
-void	sort_three(t_stack **stack, int size);
-void	orde_aux(t_data *data);
-
-void	sort_five(t_stack **stack, t_data *data);
 //					sorts
-
 /* sa (swap a): Troca os 2 primeiros elementos no topo da pilha a.
 Não faça nada se houver apenas um ou nenhum elemento. */
 void	sa(t_stack **stack_a);

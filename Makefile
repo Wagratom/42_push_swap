@@ -1,7 +1,7 @@
 LIBFT			=	./libft/libft.a
 
 SOURCS			=	main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c \
-					sort_three.c sort_five.c validacions.c
+					sort_three.c sort_five.c validacions.c raddix.c
 
 INCLUDE			=	push_swap.h
 
@@ -9,7 +9,7 @@ OBJS_DIR		=	objects
 OBJS			=	$(patsubst %.c, $(OBJS_DIR)/%.o, $(SOURCS))
 
 CC				=	cc -g3
-CFLAGS			=	#-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror
 
 RM				=	rm -rf
 NAME			=	push_swap

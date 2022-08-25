@@ -6,64 +6,66 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 11:27:06 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/23 21:57:33 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/25 10:22:38 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	position_more(t_stack *stack, t_data *data, int posi)
+int	position_more(t_stack *stack)
 {
-	int	index;
+	int			position;
+	static int	index = 1;
 
-	index = 0;
+	position = 0;
 	while (stack)
 	{
-		index++;
-		if (stack->content == data->aux[posi])
-			return (index);
+		position++;
+		if (stack->index == index)
+			break ;
 		stack = stack->next;
 	}
-	return (-1);
+	index++;
+	return (position);
 }
 
-int	share_stack(t_stack **stack_a, t_stack **stack_b, t_data *data)
+void	share_stack(t_stack **stack_a, t_stack **stack_b, int size)
 {
 	int	count;
 	int	tmp;
-	int	aux;
 
 	*stack_b = NULL;
-	aux = data->argc -2;
-	count = -1;
-	while (++count < aux)
+	count = size - 4;
+	while (count--)
 	{
-		tmp = position_more(*stack_a, data, count);
-		while (tmp != 1)
+		tmp = position_more(*stack_a);
+		if (tmp >= 3)
 		{
-			if (tmp >= 3)
+			tmp = size - tmp;
+			while (tmp--)
 				rra(stack_a);
-			else
+		}
+		else
+		{
+			while (--tmp)
 				ra(stack_a);
-			tmp = position_more(*stack_a, data, count);
 		}
 		pb(stack_a, stack_b);
+		size--;
 	}
-	return (data->argc - 3);
 }
 
-void	sort_five(t_stack **stack_a, t_data *data)
+void	sort_five(t_stack **stack_a, int size)
 {
 	t_stack	*stack_b;
-	int		tmp;
 
-	tmp = share_stack(stack_a, &stack_b, data) + 1;
-	if (tmp == 2)
+	share_stack(stack_a, &stack_b, size + 1);
+	if (size == 5)
 	{
-		if (stack_b->content < stack_b->next->content)
+		if ((*stack_a)->content < (*stack_a)->next->content)
 			sa(&stack_b);
 	}
 	sort_three(stack_a, 0);
-	while (tmp--)
-		pa(stack_a, &stack_b);
+	pa(stack_a, &stack_b);
+	pa(stack_a, &stack_b);
 }

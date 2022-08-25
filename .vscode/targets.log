@@ -1,12 +1,13 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
+ 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 23 21:37:07 2022
+# Make data base, printed on Thu Aug 25 10:21:39 2022
 
 # Variables
 
@@ -19,7 +20,7 @@ WSLENV = ELECTRON_RUN_AS_NODE/w:WT_SESSION::WT_PROFILE_ID
 # default
 .SHELLFLAGS := -c
 # makefile (from 'Makefile', line 3)
-SOURCS = main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c sort_three.c sort_five.c validacions.c
+SOURCS = main.c stk.c auxiliaries.c sort1.c sort2.c sort3.c sort_three.c sort_five.c validacions.c raddix.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -37,7 +38,7 @@ VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_langu
 # environment
 _ = /mnt/c/Users/Bankai/AppData/Local/Programs/Microsoft VS Code/bin/code
 # makefile (from 'Makefile', line 12)
-CFLAGS = 
+CFLAGS = -Wall -Wextra -Werror
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # 'override' directive
@@ -59,7 +60,7 @@ VPATH = . ./sourcs ./operatins ./algoritimos
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-1473c768-2c23-48fe-bbc0-a71e580fa252.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-823d49a2-0302-4548-87b2-b37c543c6d6d.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -71,7 +72,7 @@ PWD = /home/bankai/42/push_swap
 # default
 .LOADED := 
 # environment
-WT_SESSION = 3eb1850e-62ce-4c1d-8d38-99020f0c63ec
+WT_SESSION = c0b03116-7dd5-48a7-843f-e465037823ef
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -81,7 +82,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 LOGNAME = bankai
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -159,7 +160,7 @@ WSL_DISTRO_NAME = Ubuntu-20.04
 # environment
 MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=7/111=6%
+# Load=74/1024=7%, Rehash=0, Collisions=7/113=6%
 
 # Pattern-specific Variable Values
 
@@ -167,12 +168,15 @@ MOTD_SHOWN = update-motd
 
 # Directories
 
-# . (device 2, inode 3096224743819109): 10 files, no impossibilities.
+# . (device 2, inode 3096224743819109): 11 files, no impossibilities.
+# ./sourcs/objects: could not be stat'd.
 # ./sourcs (device 2, inode 9007199254945332): 6 files, no impossibilities.
-# ./algoritimos (device 2, inode 5348024557721396): 4 files, no impossibilities.
+# ./algoritimos/objects: could not be stat'd.
+# ./algoritimos (device 2, inode 5348024557721396): 5 files, no impossibilities.
+# ./operatins/objects: could not be stat'd.
 # ./operatins (device 2, inode 8725724278160537): 5 files, no impossibilities.
 
-# 25 files, no impossibilities in 4 directories.
+# 27 files, no impossibilities in 7 directories.
 
 # Implicit Rules
 
@@ -186,28 +190,9 @@ objects/%.o: %.c
 
 objects:
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  File does not exist.
+#  Last modified 2022-08-25 10:21:32.7140159
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := objects
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 32):
 					mkdir -p $@
 
@@ -219,13 +204,20 @@ all: push_swap
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
 # Not a target:
 objects/auxiliaries.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+./sourcs/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 10:21:15.710065
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 objects/sort2.o:
@@ -248,15 +240,9 @@ libft:
 					$(MAKE) -C ./libft bonus
 
 # Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-22 14:19:17.9445348
+#  Last modified 2022-08-25 10:21:28.5485313
 #  File has been updated.
 #  Successfully updated.
 
@@ -313,19 +299,47 @@ clean:
 					$(MAKE) -C ./libft clean
 					$(RM) $(OBJS_DIR)
 
-push_swap: objects objects/main.o objects/stk.o objects/auxiliaries.o objects/sort1.o objects/sort2.o objects/sort3.o objects/sort_three.o objects/sort_five.o objects/validacions.o
+push_swap: objects objects/main.o objects/stk.o objects/auxiliaries.o objects/sort1.o objects/sort2.o objects/sort3.o objects/sort_three.o objects/sort_five.o objects/validacions.o objects/raddix.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+ 
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 #  recipe to execute (from 'Makefile', line 25):
 					make libft
 					$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $@
 
+objects/main.o: ./sourcs/main.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := objects/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := ./sourcs/main.c
+# automatic
+# | := 
+# automatic
+# < := ./sourcs/main.c
+# automatic
+# ^ := ./sourcs/main.c
+# automatic
+# ? := ./sourcs/main.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
+#  recipe to execute (from 'Makefile', line 20):
+					$(CC) $(CFLAGS) -c $< -o $@ -I./include
+
 # Not a target:
-objects/main.o:
+objects/raddix.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -343,7 +357,7 @@ objects/sort1.o:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=20/1024=2%, Rehash=0, Collisions=4/61=7%
+# Load=22/1024=2%, Rehash=0, Collisions=4/72=6%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -351,12 +365,12 @@ objects/sort1.o:
 # General ('VPATH' variable) search path:
 # ./sourcs:./operatins:./algoritimos
 
-# strcache buffers: 1 (0) / strings = 45 / storage = 471 B / avg = 10 B
-# current buf: size = 8162 B / used = 471 B / count = 45 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 52 / storage = 577 B / avg = 11 B
+# current buf: size = 8162 B / used = 577 B / count = 52 / avg = 11 B
 
-# strcache performance: lookups = 79 / hit rate = 43%
+# strcache performance: lookups = 89 / hit rate = 41%
 # hash-table stats:
-# Load=45/8192=1%, Rehash=0, Collisions=6/79=8%
-# Finished Make data base on Tue Aug 23 21:37:07 2022
+# Load=52/8192=1%, Rehash=0, Collisions=6/89=7%
+# Finished Make data base on Thu Aug 25 10:21:39 2022
 
  
