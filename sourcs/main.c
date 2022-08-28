@@ -6,7 +6,7 @@
 /*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:17:02 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/25 12:34:40 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/08/25 12:57:01 by wjuneo-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int argc, char *argv[])
 		sort_five(&stack_a, argc - 1);
 	else
 		raddix(&stack_a);
-	//print_stack(stack_a);
+	print_stack(stack_a);
 	my_clear(stack_a, 0);
 	return (0);
 }
