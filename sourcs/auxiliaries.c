@@ -6,11 +6,49 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 22:02:51 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/09/02 11:52:46 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/09/02 16:15:14 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+void	fill_stack(char	**argv, t_stack **stack_a)
+{
+	int	index;
+
+	if (!argv[1])
+		exit(0);
+	*stack_a = NULL;
+	index = 0;
+	while (argv[++index])
+	{
+		if (ft_is_int_nbr(argv[index]))
+			my_clear(*stack_a, 1);
+		if (repeat(&argv[index]))
+			my_clear(*stack_a, 1);
+		ft_stkadd_back(stack_a, ft_stknew(ft_atoi(argv[index])));
+	}
+}
+
+void	find_index(t_stack **stack_a)
+{
+	t_stack	*tmp;
+	t_stack	*tmp2;
+
+	tmp = *stack_a;
+	while (tmp)
+	{
+		tmp->index = 1;
+		tmp2 = *stack_a;
+		while (tmp2)
+		{
+			if (tmp->content > tmp2->content)
+				tmp->index++;
+			tmp2 = tmp2->next;
+		}
+		tmp = tmp->next;
+	}
+}
 
 void	my_clear(t_stack *stack, int flg)
 {

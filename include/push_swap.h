@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:41:10 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/09/02 11:48:07 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/09/02 16:15:54 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_stack	*ft_stklast(t_stack *lst);
 void	ft_stkadd_back(t_stack **lst, t_stack *new);
 
 //					auxiliaries
+void	fill_stack(char	**argv, t_stack **stack_a);
+void	find_index(t_stack **stack_a);
 int		ft_is_int_nbr(char *nbr);
 void	print_stack(t_stack *stack);
 void	my_clear(t_stack *stack, int flg);
