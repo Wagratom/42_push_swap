@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:17:02 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/09/02 16:20:54 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/09/02 16:22:26 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	order_stack(t_stack **stack, int argc)
 {
-
 	if (!valid_stack(*stack))
 		return ;
 	if (argc <= 4)
