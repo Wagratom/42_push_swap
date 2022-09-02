@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:41:10 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/25 10:29:37 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/09/02 11:24:46 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,53 +36,84 @@ t_stack	*ft_stklast(t_stack *lst);
 void	ft_stkadd_back(t_stack **lst, t_stack *new);
 
 //					auxiliaries
+int		ft_is_int_nbr(char *nbr);
 void	print_stack(t_stack *stack);
 void	my_clear(t_stack *stack, int flg);
 
+
 //					validacions
 int		valid_stack(t_stack *tack);
-int		valid_argv(char **argv);
+int		repeat(char **argv);
 
 //					sorts
-/* sa (swap a): Troca os 2 primeiros elementos no topo da pilha a.
-Não faça nada se houver apenas um ou nenhum elemento. */
+
+/*
+	sa (swap a)
+	Swap the first 2 elements at the top of stack a.
+	Do nothing if there is only one or no elements.
+*/
 void	sa(t_stack **stack_a);
 
-/* sb (swap b): Troca os 2 primeiros elementos no topo da pilha b.
-Não faça nada se houver apenas um ou nenhum elemento.*/
+/*
+	sb (swap b)
+	Swap the first 2 elements at the top of stack b.
+	Do nothing if there is only one or no elements
+*/
 void	sb(t_stack **stack_b);
 
-/* ss : sa e sb ao mesmo tempo. */
+/*
+	ss : sa and sb at the same time.
+*/
 void	ss(t_stack **stack_a, t_stack **stack_b);
 
-/* pa (pressione a): Pegue o primeiro elemento no topo de b e coloque-o no
-topo de a. Não faça nada se b estiver vazio. */
+/*
+	pa (push a)
+	Take the first element at the top of b and put it at the top of a.
+	Do nothing if b is empty
+*/
 void	pa(t_stack **stack_a, t_stack **stack_b);
 
-/* pb (push b): Pegue o primeiro elemento no topo de a e coloque-o no topo
-de b. Não faça nada se a estiver vazio. */
+/*
+	pb (push b)
+	Take the first element at the top of a and put it at the top of b.
+	Do nothing if a is empty.
+ */
 void	pb(t_stack **stack_a, t_stack **stack_b);
 
-/* ra (girar a): Deslocar todos os elementos da pilha a por 1.
-O primeiro elemento torna-se o último. */
+/*
+	ra (rotate a)
+	Shift up all elements of stack a by 1.
+	The first element becomes the last one.
+*/
 void	ra(t_stack **stack_a);
 
-/* rb (girar b): Desloca todos os elementos da pilha b por 1.
-O primeiro elemento torna-se o último. */
+/*
+	rb (rotate b)
+	Shift up all elements of stack b by 1.
+	The first element becomes the last one.
+*/
 void	rb(t_stack **stack_b);
 
 /* rr : ra e rb ao mesmo tempo. */
 void	rr(t_stack **stack_a, t_stack **stack_b);
 
-/* rra (rotação reversa a): Desloca todos os elementos da pilha a por 1.
-O último elemento torna-se o primeiro. */
+/*
+	rra (reverse rotate a)
+	Shift down all elements of stack a by 1.
+	The last element becomes the first one.
+*/
 void	rra(t_stack **stack_a);
 
-/*rrb (rotação reversa b): Desloca todos os elementos da pilha b por 1.
-O último elemento torna-se o primeiro */
+/*
+	rrb (reverse rotate b)
+	Shift down all elements of stack b by 1.
+	The last element becomes the first one.
+*/
 void	rrb(t_stack **stack_b);
 
-/* rrr: rra e rrb ao mesmo tempo */
+/*
+	rrr: rra and rrb at the same time.
+*/
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

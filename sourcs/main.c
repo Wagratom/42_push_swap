@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wjuneo-f <wjuneo-f@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 13:17:02 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/08/25 12:57:01 by wjuneo-f         ###   ########.fr       */
+/*   Updated: 2022/09/02 11:24:57 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,16 @@
 void	fill_stack(char	**argv, t_stack **stack_a)
 {
 	int	index;
-	int	aux;
 
 	if (!argv[1])
-		my_clear(NULL, 1);
-	index = 0;
+		exit(0);
 	*stack_a = NULL;
+	index = 0;
 	while (argv[++index])
 	{
-		aux = -1;
-		while (argv[index][++aux])
-		{
-			if (!ft_isdigit(argv[index][aux]))
-				my_clear(*stack_a, 1);
-		}
-		if (valid_argv(&argv[index]))
+		if (ft_is_int_nbr(argv[index]))
+			my_clear(*stack_a, 1);
+		if (repeat(&argv[index]))
 			my_clear(*stack_a, 1);
 		ft_stkadd_back(stack_a, ft_stknew(ft_atoi(argv[index])));
 	}
@@ -71,3 +66,4 @@ int	main(int argc, char *argv[])
 	my_clear(stack_a, 0);
 	return (0);
 }
+
