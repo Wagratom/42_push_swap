@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 05:05:44 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/08/28 05:05:47 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/09/04 07:23:00 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 void	sort_three(t_stack **stack, int size)
 {
 	if (size == 2)
-	{
-		if ((*stack)->content > (*stack)->next->content)
-			sa(stack);
-	}
+		sort_two(stack);
 	else
 	{
 		while (valid_stack(*stack))

@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 13:41:10 by wjuneo-f          #+#    #+#             */
-/*   Updated: 2022/09/02 16:15:54 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/09/02 20:30:25 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ typedef struct s_stack
 }	t_stack;
 
 //					algorithms
-void	raddix(t_stack **stack_a);
-void	sort_five(t_stack **stack, int size);
+void	sort_two(t_stack **stack);
 void	sort_three(t_stack **stack, int size);
+void	sort_five(t_stack **stack, int size);
+void	raddix(t_stack **stack_a);
 
 //					stk
 t_stack	*ft_stknew(int content);

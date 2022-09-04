@@ -6,7 +6,7 @@
 /*   By: wwallas- <wwallas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 05:05:34 by wwallas-          #+#    #+#             */
-/*   Updated: 2022/08/28 05:05:36 by wwallas-         ###   ########.fr       */
+/*   Updated: 2022/09/02 20:31:11 by wwallas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	share_stack(t_stack **stack_a, t_stack **stack_b, int size)
 	int	count;
 	int	tmp;
 
-	*stack_b = NULL;
 	count = size - 4;
 	while (count--)
 	{
@@ -59,12 +58,10 @@ void	sort_five(t_stack **stack_a, int size)
 {
 	t_stack	*stack_b;
 
+	stack_b = NULL;
 	share_stack(stack_a, &stack_b, size + 1);
-	if (size == 5)
-	{
-		if ((*stack_a)->content < (*stack_a)->next->content)
-			sa(&stack_b);
-	}
+	if (size == 4)
+		sort_two(stack_a);
 	sort_three(stack_a, 0);
 	pa(stack_a, &stack_b);
 	pa(stack_a, &stack_b);
